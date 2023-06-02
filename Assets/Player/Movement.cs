@@ -9,12 +9,13 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
     [SerializeField] float speed = 11f;
+    Vector2 horizontalInput;
+
     [SerializeField] float gravity = -30;
     [SerializeField] float jumpHeight = 2f;
-
-    Vector2 horizontalInput;
     Vector3 verticalVelocity;
     public bool isGrounded;
+    private float groundedTimer;
     public bool jump;
 
     public void ReceiveInput (Vector2 _horizontalInput)
@@ -32,17 +33,23 @@ public class Movement : MonoBehaviour
         verticalVelocity.y += gravity * Time.deltaTime;
         controller.Move(verticalVelocity * Time.deltaTime);
         
-        //Check if on ground, reset fallspeed
+        //Check if on ground, reset fallspeed to avoid falling faster than the speed of light
+        //groundedTimer allows for jumping when going downhill
         isGrounded = controller.isGrounded;
         if(isGrounded)
         {
+            groundedTimer = 0.3f;
             verticalVelocity.y = 0;
+        }
+        if(groundedTimer > 0)
+        {
+            groundedTimer -= Time.deltaTime;
         }
 
         //Gives upward velocity when jump pressed && on ground
         if(jump)
         {
-            if(isGrounded)
+            if(groundedTimer > 0)
             {
                 verticalVelocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
             }

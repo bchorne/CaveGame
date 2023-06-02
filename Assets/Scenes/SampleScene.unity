@@ -173,6 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41df79278e929b41883d3939e8c0dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivityX: 50
+  sensitivityY: 0.5
+  playerCamera: {fileID: 963194228}
+  xClamp: 85
 --- !u!114 &676742163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 676742161}
+  mouseLook: {fileID: 676742162}
 --- !u!143 &676742164
 CharacterController:
   m_ObjectHideFlags: 0
@@ -197,7 +202,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
+  m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3

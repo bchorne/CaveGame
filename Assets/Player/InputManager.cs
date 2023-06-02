@@ -8,11 +8,12 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] Movement movement;
+    Vector2 horizontalInput;
+    PlayerControls controls;
+    PlayerControls.MovementActions groundMovement;
 
-   PlayerControls controls;
-   PlayerControls.MovementActions groundMovement;
-
-   Vector2 horizontalInput;
+    [SerializeField] MouseLook mouseLook;
+    Vector2 mouseInput;
 
     // How to get input
     // Movement.[action].performed += context => do something
@@ -21,22 +22,31 @@ public class InputManager : MonoBehaviour
     {
         controls = new PlayerControls();
         groundMovement = controls.Movement;
+
         groundMovement.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
         groundMovement.Jump.performed += _ => movement.OnJumpPressed();
-    }
 
-    void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    void OnDisable()
-    {
-        controls.Disable();
+        groundMovement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
+        groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
     }
 
     void Update()
     {
         movement.ReceiveInput(horizontalInput);
+        mouseLook.ReceiveInput(mouseInput);
+    }
+
+    void OnEnable()
+    {
+        controls.Enable();
+        Cursor.visible = false; 
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void OnDisable()
+    {
+        controls.Disable();
+        Cursor.visible = true; 
+        Cursor.lockState = CursorLockMode.None;
     }
 }
