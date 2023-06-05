@@ -15,6 +15,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] MouseLook mouseLook;
     Vector2 mouseInput;
 
+    [SerializeField] Pickup pickup;
+
     // How to get input
     // Movement.[action].performed += context => do something
 
@@ -28,6 +30,8 @@ public class InputManager : MonoBehaviour
 
         groundMovement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+
+        groundMovement.Interact.performed += _ => pickup.Interact();
     }
 
     void Update()
