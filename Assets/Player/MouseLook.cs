@@ -15,6 +15,8 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float xClamp = 85f;
     float xRotation = 0f;
 
+    public bool wiggle = false; //Returns true if mouse has moved horizontally since last frame
+
     void Update()
     {
         //Horizontal look
@@ -30,7 +32,18 @@ public class MouseLook : MonoBehaviour
 
     public void ReceiveInput(Vector2 mouseInput)
     {
-        mouseX = mouseInput.x * sensitivityX;
+        float temp = mouseInput.x * sensitivityX;
+        if (temp != mouseX)
+        {
+            //Mouse has moved horizontally since last frame
+            wiggle = true;
+            mouseX = temp;
+        }
+        else
+        {
+            wiggle = false; 
+        }
+
         mouseY = mouseInput.y * sensitivityY;
     }
 }
