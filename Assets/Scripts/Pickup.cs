@@ -60,6 +60,7 @@ public class Pickup : MonoBehaviour
                 pickupItem.transform.position = Vector3.zero;
                 pickupItem.transform.rotation = Quaternion.identity;
                 pickupItem.transform.SetParent(pickupParent.transform, false);
+                pickupItem.layer = default;
                 return;
             }
         }
