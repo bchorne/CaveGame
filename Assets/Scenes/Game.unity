@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 676742164}
   mouse: {fileID: 676742162}
-  speed: 11
+  speed: 3
   gravity: -30
   jumpHeight: 2
   isGrounded: 0
