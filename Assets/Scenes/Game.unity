@@ -326,7 +326,7 @@ MonoBehaviour:
   mouse: {fileID: 676742162}
   speed: 3
   gravity: -30
-  jumpHeight: 2
+  jumpHeight: 0
   isGrounded: 0
   jump: 0
 --- !u!114 &676742162
