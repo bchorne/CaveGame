@@ -92,7 +92,7 @@ public class Movement : MonoBehaviour
     public void OnCrouchPressed()
     {
         //check first whether we are in a force crouch zone
-        if(!forceCrouch)
+        if(!forceCrouch || (forceCrouch && !isCrouching))
         {
             isCrouching = !isCrouching;
             CrouchToggle(isCrouching);
@@ -129,7 +129,7 @@ public class Movement : MonoBehaviour
         //If in a force crouch zone, toggle crouch mode on
         if(coll.CompareTag("Crouch"))
         {
-            CrouchToggle(true);
+            //CrouchToggle(true);
             forceCrouch = true;
         }
     }
@@ -145,9 +145,12 @@ public class Movement : MonoBehaviour
         //When leaving a force crouch zone, toggle crouch mode off
         if(coll.CompareTag("Crouch"))
         {
-            CrouchToggle(false);
             forceCrouch = false;
-            isCrouching = false;
+            if(isCrouching)
+            {
+                CrouchToggle(false);
+                isCrouching = false;
+            }
         }
     }
 }
