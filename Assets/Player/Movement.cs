@@ -27,6 +27,8 @@ public class Movement : MonoBehaviour
 
     private bool squeezing;
     private float sqSpeed; //Speed before entering the squeeze zone
+    public bool isMoving = false;
+    private Vector3 pos;
 
     void Start()
     {
@@ -51,6 +53,16 @@ public class Movement : MonoBehaviour
         {
             speed = storedSpeed;
         }
+
+        if (pos != player.transform.position)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+        pos = player.transform.position;
 
         //Move player based on horizontal input
         Vector3 horizontalVelocity = (transform.right * horizontalInput.x + transform.forward * horizontalInput.y) * speed;
