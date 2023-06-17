@@ -31,12 +31,6 @@ public class footsteps : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Reset()
     {
         for (int i = 0; i < steps.Length; i++)
