@@ -60,7 +60,11 @@ public class Pickup : MonoBehaviour
                 pickupItem.transform.position = Vector3.zero;
                 pickupItem.transform.rotation = Quaternion.identity;
                 pickupItem.transform.SetParent(pickupParent.transform, false);
-                pickupItem.layer = default;
+                pickupItem.layer = 8; //Give torch layer, for camera culling
+                foreach (Transform child in pickupItem.transform) //Recursively apply the layer to the torch children
+                {
+                    child.gameObject.layer = 8;
+                }
                 return;
             }
         }
