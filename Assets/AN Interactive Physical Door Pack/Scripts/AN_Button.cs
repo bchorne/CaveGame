@@ -38,6 +38,9 @@ public class AN_Button : MonoBehaviour
     float angleView;
     Vector3 direction;
 
+    //Trigger Sound
+    public AudioSource src;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -67,6 +70,7 @@ public class AN_Button : MonoBehaviour
                 {
                     if (valveBool)
                     {
+                        if (!src.isPlaying && xRotation) src.Play();
                         if (!isOpened && CanOpen && current < max) current += speed * Time.deltaTime;
                         if (isOpened && CanClose && current > min) current -= speed * Time.deltaTime;
 
@@ -88,6 +92,7 @@ public class AN_Button : MonoBehaviour
                     if (!isOpened && current > min) current -= speed * Time.deltaTime;
                     if (isOpened && current < max) current += speed * Time.deltaTime;
                     valveBool = true;
+                    src.Stop();
                 }
 
                 // using value on object
