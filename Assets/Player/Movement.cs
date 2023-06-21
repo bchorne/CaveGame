@@ -116,7 +116,7 @@ public class Movement : MonoBehaviour
     {
         if(crouching)
         {
-            player.transform.localScale = new Vector3(1f, 0.5f, 1f);
+            controller.transform.localScale = new Vector3(1f, 0.5f, 1f);
             storedSpeed = speed;
             speed = crouchSpeed;
         }
