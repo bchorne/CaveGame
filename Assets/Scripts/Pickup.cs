@@ -13,7 +13,7 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     private Transform playerCameraTransform;
     [SerializeField]
-    private GameObject pickupUI;
+    public GameObject pickupUI;
     [SerializeField]
     private float hitRange = 3;
 
@@ -23,6 +23,8 @@ public class Pickup : MonoBehaviour
     private Transform pickupParent;
     [SerializeField]
     private GameObject pickupItem;
+
+    public int PlayerKeys;
 
     void Update()
     {
@@ -34,6 +36,10 @@ public class Pickup : MonoBehaviour
         if(hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
+            pickupUI.SetActive(false);
+        }
+        if(hit.collider == null)
+        {
             pickupUI.SetActive(false);
         }
         //If raycast hits a pickup, highlight it and enable tooltip
@@ -54,7 +60,6 @@ public class Pickup : MonoBehaviour
         {
             if(hit.collider.GetComponent<TorchPickup>())
             {
-                Debug.Log("It torch");
                 pickupItem = hit.collider.gameObject;
 
                 pickupItem.transform.position = Vector3.zero;
@@ -66,6 +71,11 @@ public class Pickup : MonoBehaviour
                     child.gameObject.layer = 8;
                 }
                 return;
+            }
+            if(hit.collider.GetComponent<KeyPickup>())
+            {
+                pickupItem = hit.collider.gameObject;
+                pickupItem.GetComponent<KeyPickup>().Pickup();
             }
         }
     }

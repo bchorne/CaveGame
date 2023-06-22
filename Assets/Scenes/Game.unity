@@ -1422,10 +1422,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerCameraTransform: {fileID: 963194228}
-  pickupUI: {fileID: 807892256}
+  pickupUI: {fileID: 1634573411}
   hitRange: 3
   pickupParent: {fileID: 190976938}
   pickupItem: {fileID: 0}
+  PlayerKeys: 0
 --- !u!1 &717291056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &807892257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,7 +1721,7 @@ Canvas:
   m_GameObject: {fileID: 807892256}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -2966,7 +2967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1634573412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3084,6 +3085,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 4e75c0c524cf02541b0791f47c605833, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381796007522569471, guid: 4e75c0c524cf02541b0791f47c605833, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e75c0c524cf02541b0791f47c605833, type: 3}
