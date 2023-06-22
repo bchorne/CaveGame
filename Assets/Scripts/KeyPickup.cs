@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class KeyPickup : MonoBehaviour
 {
     public Pickup pickup;
-    public AN_Button aN_Button;
-    public Image image;
+    //public GameObject dummyValve;
+    public GameObject realValve;
+    public TextMeshProUGUI collectedText;
 
     public void Pickup()
     {
-        image.color = new Color(255, 255, 255, 255);
         Debug.Log("Key script");
         pickup.PlayerKeys++;
-        if(pickup.PlayerKeys == 4)
+        collectedText.text = pickup.PlayerKeys + " / 3";
+        if(pickup.PlayerKeys == 3)
         {
-            aN_Button.Locked = false;
+            //dummyValve.SetActive(false);
+            realValve.SetActive(true);
         }
         Destroy(gameObject);
     }

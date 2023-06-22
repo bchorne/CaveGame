@@ -28,7 +28,6 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(hit.collider);
         Debug.DrawRay(
             playerCameraTransform.position,
             playerCameraTransform.forward * hitRange,
@@ -75,7 +74,6 @@ public class Pickup : MonoBehaviour
             }
             if(hit.collider.GetComponent<KeyPickup>())
             {
-                Debug.Log("it key");
                 pickupItem = hit.collider.gameObject;
                 pickupItem.GetComponent<KeyPickup>().Pickup();
             }
