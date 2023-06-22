@@ -47,8 +47,6 @@ public class AN_Button : MonoBehaviour
         startYPosition = RampObject.position.y;
         startQuat = transform.rotation;
         rampQuat = RampObject.rotation;
-
-        Locked = true;
     }
 
     void Update()
