@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     Vector2 mouseInput;
 
     [SerializeField] Pickup pickup;
+    [SerializeField] GameObject menu;
 
     // How to get input
     // Movement.[action].performed += context => do something
@@ -33,6 +34,7 @@ public class InputManager : MonoBehaviour
         groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
 
         groundMovement.Interact.performed += _ => pickup.Interact();
+        groundMovement.Pause.performed += _ => menu.SetActive(!menu.activeSelf);
     }
 
     void Update()
