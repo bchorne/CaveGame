@@ -7,7 +7,7 @@ using TMPro;
 public class KeyPickup : MonoBehaviour
 {
     public Pickup pickup;
-    //public GameObject dummyValve;
+    public GameObject dummyValve;
     public GameObject realValve;
     public TextMeshProUGUI collectedText;
 
@@ -18,7 +18,7 @@ public class KeyPickup : MonoBehaviour
         collectedText.text = pickup.PlayerKeys + " / 3";
         if(pickup.PlayerKeys == 3)
         {
-            //dummyValve.SetActive(false);
+            dummyValve.SetActive(false);
             realValve.SetActive(true);
         }
         Destroy(gameObject);
