@@ -1,3 +1,6 @@
+# Build Instructions
+Game exe can be directly build out of Main branch. Include MainMenu.scene and Game.scene.
+
 # CaveGame
 A game about being in a cave. (S1-2023-ID737001-GD)
 
