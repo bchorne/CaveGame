@@ -36,6 +36,10 @@ public class Movement : MonoBehaviour
     public AudioSource src2; //Ending
     private bool endHasPlayed = false;
     public AudioSource src3; //Cave Ambience
+    private bool hasEnded = false;
+    public GameObject fade;
+
+    public GameObject menu;
 
     void Start()
     {
@@ -167,6 +171,22 @@ public class Movement : MonoBehaviour
             endHasPlayed = true;
         }
         
+        if (coll.CompareTag("END") && !hasEnded)
+        {
+            hasEnded= true;
+            Invoke("StartFade", 1); //Start the 3 second fade after 1 second
+            Invoke("ExitGame", 5);
+        }
+    }
+
+    void StartFade()
+    {
+        fade.GetComponent<Fade>().StartFade();
+    }
+
+    void ExitGame()
+    {
+        menu.GetComponent<Menus>().MainMenu();
     }
 
     void OnTriggerExit(Collider coll)
