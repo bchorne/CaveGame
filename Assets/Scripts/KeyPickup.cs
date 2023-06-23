@@ -11,6 +11,8 @@ public class KeyPickup : MonoBehaviour
     public GameObject realValve;
     public TextMeshProUGUI collectedText;
 
+    public AudioSource src;
+
     public void Pickup()
     {
         Debug.Log("Key script");
@@ -20,6 +22,7 @@ public class KeyPickup : MonoBehaviour
         {
             dummyValve.SetActive(false);
             realValve.SetActive(true);
+            src.Play();
         }
         Destroy(gameObject);
     }

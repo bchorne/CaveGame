@@ -30,6 +30,13 @@ public class Movement : MonoBehaviour
     public bool isMoving = false;
     private Vector3 pos;
 
+    public Pickup pickup;
+    public AudioSource src1; //Monster
+    private bool monHasPlayed = false;
+    public AudioSource src2; //Ending
+    private bool endHasPlayed = false;
+    public AudioSource src3; //Cave Ambience
+
     void Start()
     {
         crouchSpeed = speed * 0.5f;
@@ -138,12 +145,28 @@ public class Movement : MonoBehaviour
             speed = speed * mult;
         }
         
-        //If in a force crouch zone, toggle crouch mode on
-        if(coll.CompareTag("Crouch"))
+        if(coll.CompareTag("Crouch")) //If in a force crouch zone, toggle crouch mode on
         {
             //CrouchToggle(true);
             forceCrouch = true;
         }
+        
+        if(coll.CompareTag("Monster"))
+        {
+            if(pickup.PlayerKeys == 3 && !monHasPlayed)
+            {
+                src1.Play();
+                monHasPlayed = true;
+            }
+        }
+
+        if (coll.CompareTag("Ending") && !endHasPlayed)
+        {
+            src2.Play();
+            src3.volume = 0.4f;
+            endHasPlayed = true;
+        }
+        
     }
 
     void OnTriggerExit(Collider coll)

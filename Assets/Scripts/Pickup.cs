@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     private GameObject pickupItem;
 
-    public int PlayerKeys;
+    public int PlayerKeys = 0;
 
     void Update()
     {
