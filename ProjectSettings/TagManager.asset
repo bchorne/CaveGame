@@ -8,6 +8,7 @@ TagManager:
   - Crouch
   - Monster
   - Ending
+  - END
   layers:
   - Default
   - TransparentFX
