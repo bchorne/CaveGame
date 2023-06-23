@@ -2942,7 +2942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 676742164}
   mouse: {fileID: 676742162}
-  speed: 11
+  speed: 3
   gravity: -30
   jumpHeight: 0
   isGrounded: 0
@@ -3013,8 +3013,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676742160}
-  m_LocalRotation: {x: -0, y: -0.0064907875, z: -0, w: -0.99997896}
-  m_LocalPosition: {x: 5.3, y: -9.28, z: -95}
+  m_LocalRotation: {x: -0, y: -0.99644154, z: -0, w: -0.08428747}
+  m_LocalPosition: {x: 1.7045852, y: -9.28, z: -7.398188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3023,7 +3023,7 @@ Transform:
   - {fileID: 30296226}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: -359.256, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -189.67, z: 0}
 --- !u!114 &676742166
 MonoBehaviour:
   m_ObjectHideFlags: 0
