@@ -39,6 +39,8 @@ public class Movement : MonoBehaviour
     private bool hasEnded = false;
     public GameObject fade;
 
+    public GameObject menu;
+
     void Start()
     {
         crouchSpeed = speed * 0.5f;
@@ -172,13 +174,19 @@ public class Movement : MonoBehaviour
         if (coll.CompareTag("END") && !hasEnded)
         {
             hasEnded= true;
-            Invoke("StartFade", 1);
+            Invoke("StartFade", 1); //Start the 3 second fade after 1 second
+            Invoke("ExitGame", 5);
         }
     }
 
     void StartFade()
     {
         fade.GetComponent<Fade>().StartFade();
+    }
+
+    void ExitGame()
+    {
+        menu.GetComponent<Menus>().MainMenu();
     }
 
     void OnTriggerExit(Collider coll)
